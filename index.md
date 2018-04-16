@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to Kcaho's Github Page
 
 You can use the [editor on GitHub](https://github.com/vykio/kcaho-strategy-game/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
