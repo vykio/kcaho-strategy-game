@@ -22,7 +22,7 @@
 
     Project Name : KCAHO - A Console Strategy Game (in C)
 
-    App Version  : 0.1.1
+    App Version  : 0.1.0
 
     Project Idea : A simple strategy game made in pure C where you have to eliminate the other's 'King'
 
