@@ -1,7 +1,7 @@
 # Project
-- Name: *Kcaho* - A console Strategy Game
+- Name: **Kcaho** - A console Strategy Game
 - Desc: A simple strategy game where you have to eliminate the other's king
-- Language: *C*
+- Language: **C**
 - Developper: @vykio
 - website: [vykio.github.io/kcaho](https://vykio.github.io/kcaho-strategy-game/)
 
@@ -16,8 +16,8 @@
 - [ ] Options menu
 
 # Stats 
-- Accomplished: *4* / *8* : *50%*
-- Lines: ~*900* lines
+- Accomplished: **4** / **8** : **50%**
+- Lines: ~**900** lines
 
 # Copyright
 - No copyright.
