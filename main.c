@@ -41,9 +41,11 @@
 
     > codepen
 
+    > google
+
 -> Notes
 
-    Pour le bot :   Mode apprentissage (simple deep learning ?)
+    Pour le bot :   Mode apprentissage (simple deep learning ?) -> difficile ?
                     Mode aleatoire (Bouge les pieces aleatoirement)
     Sauvegarde : locale + essayer de faire un ranking ONLINE
     Menu d'options (ou on peut changer les couleurs des pieces et de la surbrillance des coups du joueur 1 & 2)
