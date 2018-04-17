@@ -1,0 +1,8 @@
+#Exe files
+*.exe
+
+#Office Temp
+~$*
+
+#Kcaho Save file
+*.bsav
