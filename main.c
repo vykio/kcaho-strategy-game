@@ -28,7 +28,7 @@
 
     Developper   : Alexandre V. (Vykio)
 
-    Website      : www.bytsstudio.esy.es (not released yet)
+    Website      : https://vykio.github.io/kcaho-strategy-game/
 
     Other Games  : SlimeRaider (2D javascript platformer) - & - Legacy (text-based RPG in python 2.7)
 
