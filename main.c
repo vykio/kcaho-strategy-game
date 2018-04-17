@@ -41,6 +41,8 @@
 
     > codepen
 
+    > google
+
 -> Notes
 
     Pour le bot :   Mode apprentissage (simple deep learning ?)
