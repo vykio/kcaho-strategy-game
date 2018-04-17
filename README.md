@@ -1,3 +1,5 @@
+### Kcaho - Strategy Game in your Console
+
 # Project
 - Name: **Kcaho** - A console Strategy Game
 - Desc: A simple strategy game where you have to eliminate the other's king
