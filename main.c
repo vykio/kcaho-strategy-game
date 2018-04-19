@@ -1,5 +1,5 @@
 /*
--> TO-DO LIST: (test)
+-> TO-DO LIST:
 
     - (V) Verification du bon placement des pieces au début
     - Sauvegarde locale (nombre de parties; Niveau; Description; Pseudo; Couleur favorite; )
