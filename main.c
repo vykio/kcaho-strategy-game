@@ -61,6 +61,7 @@
 #include <math.h>
 #include <windows.h>
 #include <string.h>
+#include <time.h>
 
 //Pour gerer les couleurs de la console
 HANDLE  hConsole;
@@ -139,9 +140,14 @@ int file_exist(const char * filename){
     return 0;
 }
 
-typedef struct Joueur {
-    char name;
+/*typedef struct Joueur {
+    char name[30];
     int statTab[3];
+} Joueur;*/
+
+typedef struct Joueur {
+    char name[15];
+    int stat[2];
 } Joueur;
 
 //Variables utilisees pour la sauvegarde
@@ -184,14 +190,51 @@ bool checkIfFileEmpty() {
         int size = ftell(file2);
 
         if (0 == size) {
+            fclose(file2);
             return 1;
+
         }
+        fclose(file2);
         return 0;
+
     }
 }
 
-void askPlayer() {
-    printf("EMPTY");
+void save(Joueur _joueur) {
+    FILE *saveFile = fopen(fileName, "wb");
+    if (saveFile != NULL) {
+        fwrite (&_joueur, sizeof (Joueur), 1, saveFile);
+        printf("Sauvegarde...");
+        Sleep(1500);
+        //printf("\t-> Save successful\n");
+        //fwrite (&p_statTab, sizeof (p_statTab), 1, saveFile);
+        fclose(saveFile);
+
+    }
+}
+
+Joueur restore(Joueur _joueur) {
+    FILE *restoreFile = fopen(fileName, "rb");
+    if (restoreFile != NULL) {
+        fread(&_joueur, sizeof (Joueur), 1, restoreFile);
+        //printf("\t-> Restore successful\n");
+        //fread(&p_statTab, sizeof (p_statTab), 1, restoreFile);
+        fclose(restoreFile);
+        /*player_name = p_name;
+        player_statTab = p_statTab;*/
+        /*printf("=== %s [%i, %i]\n", _joueur.name, _joueur.stat[0], _joueur.stat[1]);*/
+        return _joueur;
+    }
+}
+
+void askPlayer(Joueur * _joueur) {
+    //Demande au joueur de donner son pseudo pour créer une sauvegarde
+    printf("Pas de sauvegarde trouvee.\nVeuillez entrer votre pseudo : ");
+    scanf("%s", &_joueur->name);
+    printf("Vous avez choisi le pseudo %s.\n", _joueur->name);
+    /*save(p_name, p_statTab);
+    restore(p_name, p_statTab);*/
+
 }
 
 int gen(int tab[lin][col]) {
@@ -296,15 +339,27 @@ int resetColor(){
     SetConsoleTextAttribute(hConsole, 7);
 }
 
+Joueur player = {"", {0,0}};
+
 /* Fonction MAIN */
 int main(){
-    Joueur player;
+
+
 
     createBinFile();
     if (checkIfFileEmpty()) {
-        askPlayer();
+
+        askPlayer(&player);
+        /*printf("###\nFichier Vide:\nNom: %s\nParties jouees: %i\nParties gagnees: %i\n###\n", player.name, player.stat[0], player.stat[1]);*/
+        save(player);
+        //system("PAUSE");
+        //restore(&player);
+    } else {
+        player = restore(player);
     }
     menu(); //On passe directement au menu
+    return 0;
+
 }
 
 int place(int numJoueur, int idPiece, int coordX, int coordY){
@@ -802,7 +857,10 @@ void placement(bool pvp) {
 }
 
 int profil() {
-    return 0;
+    system("cls");
+    printf("Nom du joueur : \t%s\nParties jouees: \t%i\nParties gagnees: \t%i\nParties perdues: \t%i\n", player.name, player.stat[0], player.stat[1], player.stat[0]-player.stat[1]);
+
+    system("PAUSE");
 }
 
 int launch(int index) {
