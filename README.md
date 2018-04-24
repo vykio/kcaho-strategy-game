@@ -7,6 +7,23 @@
 - Developper: [@vykio](https://github.com/vykio)
 - website: [vykio.github.io/kcaho](https://vykio.github.io/kcaho-strategy-game/)
 
+# Compilation
+## Windows
+### Using GCC
+```batch
+gcc -W -Wall -o game.exe main.c
+
+start game.exe
+```
+
+## Linux
+### Using GCC
+```shell
+gcc main.c -o Game
+
+./Game
+```
+
 # Important To-Do List
 - [ ] Exp, level, etc.. need to be assign to player structure
 - [ ] New menu (with keys) for player name change
