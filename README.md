@@ -28,6 +28,9 @@ gcc main.c -o Game
 
 You can run the game on ***Windows*** without using ***GCC*** by downloading the [latest release](https://github.com/vykio/kcaho-strategy-game/releases) !
 
+# Issues ?
+Thank you for playing this game ! We hope you enjoy and if you have any issues or errors please let us know by writing a message on [the issues page](https://github.com/vykio/kcaho-strategy-game/issues).
+
 # Important To-Do List
 - [ ] Exp, level, etc.. need to be assign to player structure
 - [ ] New menu (with keys) for player name change
