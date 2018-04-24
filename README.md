@@ -7,9 +7,13 @@
 - Developper: [@vykio](https://github.com/vykio)
 - website: [vykio.github.io/kcaho](https://vykio.github.io/kcaho-strategy-game/)
 
+# Important To-Do List
+- [ ] Exp, level, etc.. need to be assign to player structure
+- [ ] New menu (with keys) for player name change
+
 # To-Do List
 - [x] Placement verification at the beginning
-- [ ] Local save
+- [x] Local save
 - [ ] Bot / A.I.
 - [x] Highlight possible move
 - [x] Possible moves
@@ -18,8 +22,8 @@
 - [ ] Options menu
 
 # Stats 
-- Accomplished: **4** / **8** : **50%**
-- Lines: ~**900** lines
+- Accomplished: **5** / **8** : **62.5%**
+- Lines: ~**1000** lines
 
 # Copyright
 - No copyright.
