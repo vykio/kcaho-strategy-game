@@ -3,7 +3,7 @@
 -> TO-DO LIST:
 
     - (V) Verification du bon placement des pieces au début
-    - Sauvegarde locale (nombre de parties; Niveau; Description; Pseudo; Couleur favorite; )
+    - (~V) Sauvegarde locale (nombre de parties; Niveau; Description; Pseudo; Couleur favorite; )
     - Coder un bot
     - (V) Mise en surbrillance de certaines cases (pour tutoriel ou coups possibles)
     - (V) Coder les coups possibles pour chaque type de pieces
@@ -14,9 +14,9 @@
 
 -> Stats:
 
-    Accomplished : 4/8 ~ 50%
+    Accomplished : 5/8 ~ 62.5%
 
-    Lines : ~800 lines
+    Lines : ~1000 lines
 
 
 -> Project:
@@ -45,6 +45,8 @@
     > google
 
 -> Notes
+
+    /!\ strcpy(array1, array2) => ~ array1 = array2
 
     Pour le bot :   Mode apprentissage (simple deep learning ?) -> difficile ?
                     Mode aleatoire (Bouge les pieces aleatoirement)
@@ -110,7 +112,7 @@ HANDLE  hConsole;
 
 //Variables globales pour le menu principal
 #define MIN_MENU_ITEM 1
-#define MAX_MENU_ITEM 4
+#define MAX_MENU_ITEM 6
 
 //Variables Fichiers sauvegarde
 #define fileName "profil.bsav"
@@ -150,9 +152,17 @@ typedef struct Joueur {
     int stat[2];
 } Joueur;
 
+typedef struct ListeJoueur {
+    Joueur j1, j2;
+} ListeJoueur;
+
 //Variables utilisees pour la sauvegarde
 //int statTab[]
 //char name
+
+
+
+ListeJoueur player_list;
 
 /*
 
@@ -200,10 +210,11 @@ bool checkIfFileEmpty() {
     }
 }
 
-void save(Joueur _joueur) {
-    FILE *saveFile = fopen(fileName, "wb");
+void save(ListeJoueur liste, const char * mode) {
+    FILE *saveFile = fopen(fileName, mode);
     if (saveFile != NULL) {
-        fwrite (&_joueur, sizeof (Joueur), 1, saveFile);
+        fwrite (&liste, sizeof (ListeJoueur), 1, saveFile);
+
         printf("Sauvegarde...");
         Sleep(1500);
         //printf("\t-> Save successful\n");
@@ -213,18 +224,22 @@ void save(Joueur _joueur) {
     }
 }
 
-Joueur restore(Joueur _joueur) {
+ListeJoueur restore(ListeJoueur liste) {
     FILE *restoreFile = fopen(fileName, "rb");
     if (restoreFile != NULL) {
-        fread(&_joueur, sizeof (Joueur), 1, restoreFile);
+        fread(&liste, sizeof (ListeJoueur), 1, restoreFile);
         //printf("\t-> Restore successful\n");
         //fread(&p_statTab, sizeof (p_statTab), 1, restoreFile);
         fclose(restoreFile);
         /*player_name = p_name;
         player_statTab = p_statTab;*/
         /*printf("=== %s [%i, %i]\n", _joueur.name, _joueur.stat[0], _joueur.stat[1]);*/
-        return _joueur;
+        return liste;
     }
+}
+
+void defaultName(Joueur * _joueur) {
+    strcpy(_joueur->name, "J2");
 }
 
 void askPlayer(Joueur * _joueur) {
@@ -339,7 +354,7 @@ int resetColor(){
     SetConsoleTextAttribute(hConsole, 7);
 }
 
-Joueur player = {"", {0,0}};
+
 
 /* Fonction MAIN */
 int main(){
@@ -349,13 +364,14 @@ int main(){
     createBinFile();
     if (checkIfFileEmpty()) {
 
-        askPlayer(&player);
+        askPlayer(&(player_list.j1));
+        defaultName(&(player_list.j2));
         /*printf("###\nFichier Vide:\nNom: %s\nParties jouees: %i\nParties gagnees: %i\n###\n", player.name, player.stat[0], player.stat[1]);*/
-        save(player);
+        save(player_list, "wb");
         //system("PAUSE");
         //restore(&player);
     } else {
-        player = restore(player);
+        player_list = restore(player_list);
     }
     menu(); //On passe directement au menu
     return 0;
@@ -695,8 +711,12 @@ void game(bool pvp){
         }
     }
 
-    if (pieces1[0][3] == false) printf("Le joueur 2 a gagne la partie.\n");
-    if (pieces2[0][3] == false) printf("Le joueur 1 a gagne la partie.\n");
+    if (pieces1[0][3] == false) {
+        printf("Le joueur 2 a gagne la partie.\n");
+    }
+    if (pieces2[0][3] == false) {
+        printf("Le joueur 1 a gagne la partie.\n");
+    }
     system("PAUSE");
 }
 
@@ -856,9 +876,29 @@ void placement(bool pvp) {
     menu();
 }
 
+int changePlayer(int numJoueur) {
+    printf("Veuillez entrer le nouveau nom (SANS-ESPACES) du joueur ");
+    if (numJoueur == 1) {
+        color(green);
+        printf("1");
+        resetColor();
+        printf(": ");
+        scanf("%s", &player_list.j1.name);
+    } else if (numJoueur == 2) {
+        color(red);
+        printf("2");
+        resetColor();
+        printf(": ");
+        scanf("%s", &player_list.j2.name);
+    }
+
+    save(player_list, "wb");
+}
+
 int profil() {
     system("cls");
-    printf("Nom du joueur : \t%s\nParties jouees: \t%i\nParties gagnees: \t%i\nParties perdues: \t%i\n", player.name, player.stat[0], player.stat[1], player.stat[0]-player.stat[1]);
+    printf("Nom du joueur 1: \t%s\nParties jouees: \t%i\nParties gagnees: \t%i\nParties perdues: \t%i\n", player_list.j1.name, player_list.j1.stat[0], player_list.j1.stat[1], player_list.j1.stat[0]-player_list.j1.stat[1]);
+    printf("\nNom du joueur 2: \t%s\nParties jouees: \t%i\nParties gagnees: \t%i\nParties perdues: \t%i\n", player_list.j2.name,player_list.j2.stat[0], player_list.j2.stat[1], player_list.j2.stat[0]-player_list.j2.stat[1]);
 
     system("PAUSE");
 }
@@ -872,6 +912,10 @@ int launch(int index) {
         profil();
     } else if (index == 4) {
         exit(0);
+    } else if (index == 5) {
+        changePlayer(1);
+    } else if (index == 6) {
+        changePlayer(2);
     }
 }
 
@@ -921,6 +965,8 @@ int menu() {
         }
         printf("Profil\n\t");
         resetColor();
+
+
         printf("4. ");
 
         if (selected == 4) {
@@ -928,7 +974,27 @@ int menu() {
         } else {
             color(darkgrey);
         }
-        printf("Quitter\n");
+        printf("Quitter\n\n\n\t");
+        resetColor();
+
+        printf("-- ");
+
+        if (selected == 5) {
+            color(OVER_darkgrey);
+        } else {
+            color(darkgrey);
+        }
+        printf("Nom du joueur 1\n\t");
+        resetColor();
+
+        printf("-- ");
+
+        if (selected == 6) {
+            color(OVER_darkgrey);
+        } else {
+            color(darkgrey);
+        }
+        printf("Nom du joueur 2\n");
         resetColor();
 
         //printf(" > ");

@@ -3,6 +3,7 @@
 struct threeNum
 {
    int n1, n2, n3;
+   char name[15];
 };
 
 int main()
@@ -19,7 +20,7 @@ int main()
    }
 
    fread(&num, sizeof(struct threeNum), 1, fptr);
-   printf("n1: %d\tn2: %d\tn3: %d\n", num.n1, num.n2, num.n3);
+   printf("n1: %d\tn2: %d\tn3: %d\tname: %s\n", num.n1, num.n2, num.n3, num.name);
 
    fclose(fptr);
 
