@@ -9,7 +9,7 @@
 
 # To-Do List
 - [x] Placement verification at the beginning
-- [ ] Local save
+- [x] Local save
 - [ ] Bot / A.I.
 - [x] Highlight possible move
 - [x] Possible moves
