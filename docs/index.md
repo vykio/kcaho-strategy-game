@@ -1,3 +1,30 @@
+### Kcaho - Strategy Game in your Console
+
+# Project
+- Name: **Kcaho** - A console Strategy Game
+- Desc: A simple strategy game where you have to eliminate the other's king
+- Language: **C**
+- Developper: [@vykio](https://github.com/vykio)
+- website: [vykio.github.io/kcaho](https://vykio.github.io/kcaho-strategy-game/)
+
+# To-Do List
+- [x] Placement verification at the beginning
+- [ ] Local save
+- [ ] Bot / A.I.
+- [x] Highlight possible move
+- [x] Possible moves
+- [ ] Exp, level, etc...
+- [x] Keyboard menu
+- [ ] Options menu
+
+# Stats 
+- Accomplished: **4** / **8** : **50%**
+- Lines: ~**900** lines
+
+# Copyright
+- No copyright.
+
+
 ## Welcome to Kcaho's Github Page
 
 You can use the [editor on GitHub](https://github.com/vykio/kcaho-strategy-game/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
