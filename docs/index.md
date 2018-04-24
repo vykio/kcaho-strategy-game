@@ -8,14 +8,14 @@
 - website: [vykio.github.io/kcaho](https://vykio.github.io/kcaho-strategy-game/)
 
 # To-Do List
-- [x]  Placement verification at the beginning
-- [ ]  Local save
-- [ ]  Bot / A.I.
-- [x]  Highlight possible move
-- [x]  Possible moves
-- [ ]  Exp, level, etc...
-- [x]  Keyboard menu
-- [ ]  Options menu
+- [x] &nbsp;Placement verification at the beginning
+- [ ] &nbsp;Local save
+- [ ] &nbsp;Bot / A.I.
+- [x] &nbsp;Highlight possible move
+- [x] &nbsp;Possible moves
+- [ ] &nbsp;Exp, level, etc...
+- [x] &nbsp;Keyboard menu
+- [ ] &nbsp;Options menu
 
 # Stats 
 - Accomplished: **4** / **8** : **50%**
