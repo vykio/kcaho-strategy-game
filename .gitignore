@@ -6,3 +6,6 @@
 
 #Kcaho Save file
 *.bsav
+
+#dir
+test/
