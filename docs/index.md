@@ -8,7 +8,7 @@
 - website: [vykio.github.io/kcaho](https://vykio.github.io/kcaho-strategy-game/)
 
 # To-Do List
-- [x] <space> Placement verification at the beginning
+- [x] <space><space> Placement verification at the beginning
 - [ ] &nbsp;Local save
 - [ ] &nbsp;Bot / A.I.
 - [x] &nbsp;Highlight possible move
