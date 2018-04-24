@@ -7,6 +7,10 @@
 - Developper: [@vykio](https://github.com/vykio)
 - website: [vykio.github.io/kcaho](https://vykio.github.io/kcaho-strategy-game/)
 
+# Important To-Do List
+- [ ] Exp, level, etc.. need to be assign to player structure
+- [ ] New menu (with keys) for player name change
+
 # To-Do List
 - [x] Placement verification at the beginning
 - [x] Local save
