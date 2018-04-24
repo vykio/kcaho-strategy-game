@@ -24,6 +24,10 @@ gcc main.c -o Game
 ./Game
 ```
 
+# Run it !
+
+You can run the game on ***Windows*** without using ***GCC*** by downloading the [latest release](https://github.com/vykio/kcaho-strategy-game/releases) !
+
 # Important To-Do List
 - [ ] Exp, level, etc.. need to be assign to player structure
 - [ ] New menu (with keys) for player name change
