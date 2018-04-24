@@ -22,8 +22,8 @@
 - [ ] Options menu
 
 # Stats 
-- Accomplished: **4** / **8** : **50%**
-- Lines: ~**900** lines
+- Accomplished: **5** / **8** : **62.5%**
+- Lines: ~**1000** lines
 
 # Copyright
 - No copyright.
