@@ -16,7 +16,7 @@ gcc -W -Wall -o game.exe main.c
 start game.exe
 ```
 
-## Linux
+## Linux (not working yet)
 ### Using GCC
 ```shell
 gcc main.c -o Game
